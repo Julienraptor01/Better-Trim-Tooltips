@@ -8,11 +8,13 @@
 		"Andrew6rant (Andrew Grant)"
 	],
 	"contact": {
-		"sources": "https://github.com/Andrew6rant/Better-Trim-Tooltips"
+		"homepage": "https://modrinth.com/mod/better-trim-tooltips",
+		"sources": "https://github.com/Andrew6rant/Better-Trim-Tooltips",
+		"issues": "https://github.com/Andrew6rant/Better-Trim-Tooltips/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/better-trim-tooltips/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
 	},
 	"mixins": [
@@ -22,22 +24,26 @@
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.14.1",
-		"minecraft": [
-			"~1.19.4",
-			">=1.20"
-		],
-		"java": ">=17",
+		"minecraft": "~1.20.6",
+		"fabricloader": ">=0.16.9",
+		"java": ">=21",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	},
 	"custom": {
 		"mc-publish": {
 			"modrinth": "WMoUFmXc",
 			"curseforge": 868132,
-			"loaders": ["fabric", "quilt"]
+			"loaders": [
+				"fabric",
+				"quilt"
+			]
+		},
+		"modmenu": {
+			"links": {
+				"modmenu.modrinth": "https://modrinth.com/mod/better-trim-tooltips",
+				"modmenu.curseforge": "https://curseforge.com/minecraft/mc-mods/better-trim-tooltips",
+				"modmenu.github_releases": "https://github.com/Andrew6rant/Better-Trim-Tooltips/releases"
+			}
 		}
 	}
 }

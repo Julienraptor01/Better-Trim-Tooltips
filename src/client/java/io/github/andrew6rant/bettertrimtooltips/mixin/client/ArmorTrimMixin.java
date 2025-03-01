@@ -1,10 +1,10 @@
 package io.github.andrew6rant.bettertrimtooltips.mixin.client;
 
-import net.minecraft.client.item.TooltipType;
 import net.minecraft.item.Item;
-import net.minecraft.item.trim.ArmorTrim;
-import net.minecraft.item.trim.ArmorTrimMaterial;
-import net.minecraft.item.trim.ArmorTrimPattern;
+import net.minecraft.item.equipment.trim.ArmorTrim;
+import net.minecraft.item.equipment.trim.ArmorTrimMaterial;
+import net.minecraft.item.equipment.trim.ArmorTrimPattern;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Style;
@@ -24,10 +24,10 @@ public abstract class ArmorTrimMixin {
 	private boolean showInTooltip;
 
 	@Shadow
-	public abstract RegistryEntry<ArmorTrimPattern> getPattern();
+	public abstract RegistryEntry<ArmorTrimPattern> pattern();
 
 	@Shadow
-	public abstract RegistryEntry<ArmorTrimMaterial> getMaterial();
+	public abstract RegistryEntry<ArmorTrimMaterial> material();
 
 	/**
 	 * @author Julienraptor01
@@ -36,8 +36,8 @@ public abstract class ArmorTrimMixin {
 	@Overwrite
 	public void appendTooltip(Item.TooltipContext context, Consumer<Text> tooltip, TooltipType type) {
 		if (showInTooltip) {
-			Text patternDescription = this.getPattern().value().description();
-			Text materialDescription = this.getMaterial().value().description();
+			Text patternDescription = this.pattern().value().description();
+			Text materialDescription = this.material().value().description();
 			Style materialDescriptionStyle = materialDescription.getStyle();
 			tooltip.accept(Text.literal("")
 					.append(patternDescription)
